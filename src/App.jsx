@@ -3,10 +3,11 @@ import Navbar from './components/Navbar.jsx';
 import Signup from "./pages/signup.jsx";
 import Login from "./pages/login.jsx";
 import Home from './pages/Home.jsx';
+import Upload from "./pages/Upload.jsx";
 // // Page Components (create these as separate components later)
 
 // import Songs from './pages/Songs';
-// import Upload from './pages/Upload';
+
 // import Liked from './pages/Liked';
 // import NotFound from './pages/NotFound';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="*" element={<NotFound />} /> */}
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/upload" element={<Upload/>} />
         </Routes>
       </div>
     </Router>

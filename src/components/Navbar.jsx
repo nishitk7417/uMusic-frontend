@@ -1,17 +1,20 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const [role, setRole] = useState(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // Check login status
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const userRole = localStorage.getItem("role");
     setIsLoggedIn(!!token);
+    setRole(userRole);
   }, []);
 
   // Logout handler
@@ -28,6 +31,13 @@ const Navbar = () => {
       <li>
         <Link to="/songs" className='mr-4' onClick={() => setIsOpen(false)}>Songs</Link>
       </li>
+
+      {isLoggedIn && role === "admin" && (
+    <li>
+      <Link to="/upload" className="mr-4 text-violet-300 hover:underline" onClick={() => setIsOpen(false)}>Upload</Link>
+    </li>
+      )}
+
       {!isLoggedIn ? (
         <>
           <li>
