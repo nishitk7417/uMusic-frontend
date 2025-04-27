@@ -11,7 +11,7 @@ const Songs = () => {
   useEffect(() => {
     const fetchSongs = async () => {
       try {
-        const res = await axios.get("/api/v1/song/songs"); // Adjust if your route is different
+        const res = await axios.get("/api/v1/song/songs"); 
         setSongs(res.data?.data || []);
       } catch (err) {
         console.error(err);

@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import Upload from "./pages/Upload.jsx";
 import Songs from "./pages/songs.jsx";
 import MusicPlayer from "./components/MusicPlayer.jsx";
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/songs" element={<Songs />} />
         </Routes>
         <MusicPlayer/>
+        <ToastContainer/>
       </div>
     </Router>
   );

@@ -29,14 +29,14 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      const { accessToken, user } = res.data?.data || {};
-      console.log(res.data);     
+      const { accessToken, user } = res.data?.data || {};    
 
       if (accessToken && user) {
         // Store token & role in localStorage
         localStorage.setItem("token", accessToken);
         localStorage.setItem("role", user.role);
         localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem('isLoggedIn', 'true');
 
         setMessage("Login successful!");
 

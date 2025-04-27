@@ -1,16 +1,27 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";  
 
-// 1. Create Context
 export const MusicPlayerContext = createContext();
 
-// 2. Create Provider
 export const MusicPlayerProvider = ({ children }) => {
   const [currentSong, setCurrentSong] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const playSong = (song) => {
-    setCurrentSong(song);
-    setIsPlaying(true);
+    const token = localStorage.getItem("token");
+    if (token) {
+      setCurrentSong(song);
+      setIsPlaying(true);
+    } else {
+      toast.error("Please login first to play music!", {
+        position: "top-center", 
+        autoClose: 3000,        
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      });
+    }
   };
 
   const closePlayer = () => {
