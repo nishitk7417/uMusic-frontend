@@ -63,7 +63,7 @@ const Login = () => {
         </Link>
         <h2 className="text-2xl font-semibold text-center">Log In</h2>
         {message && <p className="text-center text-sm text-yellow-400">{message}</p>}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-[6px] space-y-4">
           <input
             type="email"
             name="email"
