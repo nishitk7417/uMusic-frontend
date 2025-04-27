@@ -6,6 +6,7 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const [role, setRole] = useState(null);
+  const [initial, setInitial] = useState('');
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -13,8 +14,14 @@ const Navbar = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userRole = localStorage.getItem("role");
+    const userData = JSON.parse(localStorage.getItem("user"));
+    
     setIsLoggedIn(!!token);
     setRole(userRole);
+
+    if (userData && userData.name) {
+      setInitial(userData.name.charAt(0).toUpperCase()); // Get first letter
+    }
   }, []);
 
   // Logout handler
@@ -23,7 +30,7 @@ const Navbar = () => {
     localStorage.removeItem("role");
     localStorage.removeItem("user");
     setIsLoggedIn(false);
-    navigate("/login");
+    navigate("/");
   };
 
   const navLinks = (
@@ -48,11 +55,18 @@ const Navbar = () => {
           </li>
         </>
       ) : (
-        <li>
-          <button onClick={handleLogout} className="px-3 py-2 bg-red-400 text-white rounded-[3rem] hover:bg-red-600">
-            Logout
-          </button>
-        </li>
+        <>
+          <li className="mr-4">
+            <div className="w-10 h-10 flex justify-center cursor-pointer items-center rounded-full bg-violet-400 text-white font-bold hover:border">
+              {initial}
+            </div>
+          </li>
+          <li>
+            <button onClick={handleLogout} className="px-3 py-2 bg-red-400 text-white rounded-[3rem]">
+              Logout
+            </button>
+          </li>
+        </>
       )}
     </div>
   );
