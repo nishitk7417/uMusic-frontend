@@ -53,7 +53,7 @@ const Upload = () => {
   return (
     <>
       <Navbar />
-      {loading && <Loader />} {/* Show loader when uploading */}
+      {loading && <Loader />}
 
       <div className="min-h-[100vh] w-[100vw] flex justify-center items-center bg-gray-900 text-white">
         <form
@@ -63,7 +63,6 @@ const Upload = () => {
           <h2 className="text-2xl font-semibold text-violet-400 mb-6">Upload New Song</h2>
 
           <div className="mb-4">
-            <label className="block mb-1">Song Name</label>
             <input
                 placeholder="Enter the Song name..."
               type="text"
@@ -75,7 +74,6 @@ const Upload = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block mb-1">Artist</label>
             <input
                 placeholder="Enter the Artist name..."
               type="text"
@@ -87,7 +85,6 @@ const Upload = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block mb-1">Genre</label>
             <select
                 className="w-full px-3 py-2 rounded bg-gray-700 text-white"
                 value={genre}
@@ -109,22 +106,22 @@ const Upload = () => {
 
 
           <div className="mb-4">
-            <label className="block mb-1">Cover Image</label>
+          <label className="block mb-1">Cover Image</label>
             <input
               type="file"
               accept="image/*"
-              className="w-full bg-gray-700 text-white"
+              className="w-full h-8 px-3 py-1 rounded bg-gray-700 text-white"
               onChange={(e) => setCoverImage(e.target.files[0])}
               required
             />
           </div>
 
           <div className="mb-6">
-            <label className="block mb-1">Song File</label>
+          <label className="block mb-1">Audio File</label>
             <input
               type="file"
               accept="audio/*"
-              className="w-full bg-gray-700 text-white"
+              className="w-full h-8 px-3 py-1 rounded bg-gray-700 text-white"
               onChange={(e) => setFile(e.target.files[0])}
               required
             />
