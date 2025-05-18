@@ -7,11 +7,12 @@ import axios from "axios";
 const Songs = () => {
   const [songs, setSongs] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchSongs = async () => {
       try {
-        const res = await axios.get("/api/v1/song/songs"); 
+        const res = await axios.get(`${API_BASE_URL}/api/v1/song/songs`); 
         setSongs(res.data?.data || []);
       } catch (err) {
         console.error(err);

@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar.jsx';
 import Signup from "./pages/signup.jsx";
 import Login from "./pages/login.jsx";
 import Home from './pages/Home.jsx';

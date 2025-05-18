@@ -10,6 +10,7 @@ const Upload = () => {
   const [file, setFile] = useState(null);
   const [coverImage, setCoverImage] = useState(null);
   const [loading, setLoading] = useState(false); 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const Upload = () => {
     try {
       setLoading(true); 
 
-      const res = await axios.post("/api/v1/song/upload", formData, {
+      const res = await axios.post(`${API_BASE_URL}/api/v1/song/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("token")}`,

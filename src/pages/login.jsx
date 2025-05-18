@@ -3,6 +3,7 @@ import {Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "/api/v1/users/login",
+        `${API_BASE_URL}/api/v1/users/login`,
         formData,
         { withCredentials: true }
       );

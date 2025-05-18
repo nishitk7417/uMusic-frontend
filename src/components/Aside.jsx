@@ -1,13 +1,8 @@
-import { Link, Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar.jsx";
+import React from 'react'
 
-const Home = () => {
+function Aside() {
   return (
-    <div className="flex flex-col">
-      <Navbar />
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white overflow-x-hidden">
-        <div className="flex">
-          <aside className="w-14 border-r shadow-[0_4px_15px_rgba(255,255,255,0.3)] md:w-48 border-gray-700 ">
+    <aside className="w-14 border-r shadow-[0_4px_15px_rgba(255,255,255,0.3)] md:w-48 border-gray-700 ">
             <ul className=""> 
               <button  className=" w-48 flex items-center gap-2 border-gray-800 md:border-b p-2 hover:bg-purple-700 focus-border-red-300 active:bg-purple-500 transition duration-400 cursor-pointer">
                 <Link
@@ -44,19 +39,7 @@ const Home = () => {
               </li>
             </ul>
           </aside>
+  )
+}
 
-          {/* Main content */}
-          <main className="flex-1  overflow-auto h-[41rem] p-2">
-            <div className="border">
-              <div>
-                <Outlet/>
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Home;
+export default Aside
