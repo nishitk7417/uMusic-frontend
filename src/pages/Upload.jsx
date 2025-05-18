@@ -19,7 +19,7 @@ const Upload = () => {
       alert("Please upload both song file and cover image.");
       return;
     }
-
+    
     const formData = new FormData();
     formData.append("audioFile", file);
     formData.append("coverImage", coverImage);

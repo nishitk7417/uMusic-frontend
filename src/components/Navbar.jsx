@@ -50,9 +50,6 @@ const Navbar = () => {
 
   const navLinks = (
     <div className='flex justify-between items-center'>
-      <li>
-        <Link to="/songs" className='mr-4'>Songs</Link>
-      </li>
 
       {isLoggedIn && role === "admin" && (
         <li>
@@ -89,6 +86,7 @@ const Navbar = () => {
             >
               Liked Songs
             </span>
+            <Link to="/setting" className='block w-full text-left px-4 py-2 text-gray-800 cursor-pointer  rounded-md hover:text-white hover:border hover:border-white'>Setting</Link>
             <span
               onClick={handleLogout}
               className="block w-full text-left px-4 py-2 text-gray-800 cursor-pointer hover:bg-red-400 hover:text-white hover:border hover:border-white"
